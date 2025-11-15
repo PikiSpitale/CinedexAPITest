@@ -61,7 +61,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 // JWT
-var jwtSecret = builder.Configuration.GetSection("Secrets")?.GetSection("JWT")?.Value?.ToString() ?? null!;
+var jwtSecret = Environment.GetEnvironmentVariable("Secrets__JWT");
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
