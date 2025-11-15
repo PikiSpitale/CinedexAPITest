@@ -1,2 +1,7 @@
-#vs
+# Build outputs
+bin/
+obj/
+
+# Visual Studio caches
+# see also https://learn.microsoft.com/dotnet/core/tools/source-control
 .vs
