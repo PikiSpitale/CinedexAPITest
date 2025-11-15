@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>proyecto_prog4</RootNamespace>
+    <AssemblyName>proyecto</AssemblyName>
     <UserSecretsId>affdf4b6-1033-4bf7-b8cd-b43090110e23</UserSecretsId>
   </PropertyGroup>
 
