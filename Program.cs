@@ -53,7 +53,7 @@ builder.Services.AddScoped<IRolRepository, RolRepository>();
 builder.Services.AddAutoMapper(opts => { }, typeof(Mapping));
 
 // Database
-var connectionString = builder.Configuration.GetConnectionString("devConnection");
+var connectionString = builder.Configuration.GetConnectionString("CONNECTION_STRING");
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseMySql(connectionString,
