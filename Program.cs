@@ -92,22 +92,22 @@ builder.Services.AddAuthentication(x =>
 
 var app = builder.Build();
 
-
 // CORS
 app.UseCors(opts =>
 {
     opts.AllowAnyMethod();
     opts.AllowAnyHeader();
-    opts.WithOrigins();
+    opts.SetIsOriginAllowed(_ => true);
     opts.AllowCredentials();
 });
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseSwagger();
+app.UseSwaggerUI(options =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Cinedex API v1");
+    options.RoutePrefix = "swagger";
+});
 
 app.UseHttpsRedirection();
 
@@ -115,6 +115,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapGet("/", () => Results.Redirect("/swagger"));
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 app.Urls.Add($"http://0.0.0.0:{port}");
