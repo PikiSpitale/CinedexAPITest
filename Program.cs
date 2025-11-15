@@ -98,7 +98,7 @@ app.UseCors(opts =>
 {
     opts.AllowAnyMethod();
     opts.AllowAnyHeader();
-    opts.WithOrigins("http://localhost:5173");
+    opts.WithOrigins();
     opts.AllowCredentials();
 });
 
